@@ -76,7 +76,7 @@ Body:
   "deadline": "2-4sem",
   "idea": "Descrição da necessidade",
   "consent": true,
-  "sourceUrl": "https://dev.com,
+  "sourceUrl": "https://dev.com",
   "honey": null
 }
 ```
