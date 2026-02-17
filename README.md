@@ -18,12 +18,6 @@ A aplicação está em produção e integrada à landing page oficial, utilizand
 
 ---
 
-## 🌐 Produção
-
-https://trustautomation-api.onrender.com
-
----
-
 ## 📦 Executar Localmente
 
 ```bash
@@ -82,7 +76,7 @@ Body:
   "deadline": "2-4sem",
   "idea": "Descrição da necessidade",
   "consent": true,
-  "sourceUrl": "https://trustautomation-lp.pages.dev",
+  "sourceUrl": "https://dev.com,
   "honey": null
 }
 ```
