@@ -1,5 +1,18 @@
-﻿@"
-.vs/
+﻿# Build
 bin/
 obj/
-"@ | Out-File -Encoding utf8 .gitignore
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Secrets / configs locais
+**/secrets.json
+appsettings.Development.json
+appsettings.Local.json
+
+# Logs
+*.log
