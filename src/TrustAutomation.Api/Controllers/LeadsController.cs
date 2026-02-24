@@ -50,7 +50,6 @@ namespace TrustAutomation.Api.Controllers
                     Honey: req.Honey
                 ), ct);
 
-                // honeypot => 200 ok (mesmo comportamento)
                 if (result is null)
                     return Ok(new { ok = true });
 

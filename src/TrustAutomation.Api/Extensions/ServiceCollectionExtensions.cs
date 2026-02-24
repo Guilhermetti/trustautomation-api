@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TrustAutomation.Application.Commands.Leads;
+using TrustAutomation.Application.Handlers;
 using TrustAutomation.Application.Interfaces;
 using TrustAutomation.Infrastructure.Data;
 using TrustAutomation.Infrastructure.Repositories;
@@ -20,11 +20,11 @@ namespace TrustAutomation.Api.Extensions
             services.AddScoped<ILeadRepository, LeadRepository>();
             services.AddSingleton<ISystemClock, SystemClock>();
 
+            services.AddScoped<LeadHandler>();
+
             services.AddMediatR(cfgM =>
             {
-                cfgM.RegisterServicesFromAssemblies(
-                    typeof(CreateLeadCommand).Assembly
-                );
+                cfgM.RegisterServicesFromAssembly(typeof(CreateLeadRequestHandler).Assembly);
             });
 
             return services;
