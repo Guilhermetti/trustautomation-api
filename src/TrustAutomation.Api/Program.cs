@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 var allowedOrigin = builder.Configuration["ALLOWED_ORIGIN"];
 
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerWithApiKey();
 
 builder.Services.AddCors(opt =>
 {
@@ -20,15 +22,18 @@ builder.Services.AddCors(opt =>
 builder.Services.AddRateLimiter(options =>
 {
     options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+
     options.AddPolicy("leads", httpContext =>
     {
         var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
-        return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
-        {
-            PermitLimit = 10,
-            Window = TimeSpan.FromMinutes(1),
-            QueueLimit = 0
-        });
+
+        return RateLimitPartition.GetFixedWindowLimiter(ip, _ =>
+            new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 10,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0
+            });
     });
 });
 
@@ -36,7 +41,11 @@ builder.Services.AddTrustAutomation(builder.Configuration);
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseCors("frontend");
+
 app.UseRateLimiter();
 
 app.UseMiddleware<ApiKeyAuthMiddleware>();
