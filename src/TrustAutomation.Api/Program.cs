@@ -5,6 +5,8 @@ using TrustAutomation.Api.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
 
 var allowedOrigin = builder.Configuration["ALLOWED_ORIGIN"];
+if (string.IsNullOrWhiteSpace(allowedOrigin))
+    throw new Exception("ALLOWED_ORIGIN is required.");
 
 builder.Services.AddControllers();
 
