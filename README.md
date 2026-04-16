@@ -1,6 +1,6 @@
-# Trust Automation — Backend API
+# Trust Developer — Backend API
 
-API desenvolvida em **.NET 8** responsável pela captação, armazenamento e gerenciamento de leads da Trust Automation And Solutions Technology.
+API desenvolvida em **.NET 8** responsável pela captação, armazenamento e gerenciamento de leads da Trust Developer.
 
 A aplicação está em produção e integrada à landing page oficial, utilizando arquitetura desacoplada e infraestrutura serverless de baixo custo.
 
@@ -153,4 +153,4 @@ Fornecer uma API leve, segura e escalável para:
 
 ## 📄 Licença
 
-Uso privado — Trust Automation And Solutions Technology.
+Uso privado — Trust Developer.
